@@ -31,8 +31,10 @@ loginbody <-   tagList(
 
 # body - используется не как всегда, а просто выводит отрендеренный в server() UI
 body    <- dashboardBody(
-                        shinyjs::useShinyjs(),
+  ###### Две строки ниже - реализация на js функции отключения заголовка ######
+                        shinyjs::useShinyjs(), 
                         extendShinyjs(text = "shinyjs.hidehead = function(parm){$('header').css('display', parm);}"),
+  ###### Тут выводим отрендеренный body
                         uiOutput("body1")
                         )
 
